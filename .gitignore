@@ -1,0 +1,17 @@
+build/
+out/
+obj/
+*.obj
+*.pdb
+*.exp
+*.lib
+*.dll
+*.asi
+*.user
+.vs/
+CMakeSettings.json
+.idea/
+cmake-build-*/
+*.log
+build_*.txt
+cl_*.txt
