@@ -1,54 +1,22 @@
-# SkateMod+ 
+# SkateMod+
 
-Projeto para melhorar o Skate Mod existente, portar para ASI, adicionar animações do Tony Hawk's American Wasteland e integrar com Urbanize.
+SkateMod+ é a evolução do Skate Mod original para GTA San Andreas. Portado para ASI, traz animações, tricks, grinds, manuals e física aprimorados inspirados em Tony Hawk's American Wasteland. Mantém a integração já existente com o Urbanize sem editar nenhum de seus arquivos, e foi projetado para coexistir com o SAAWR.
 
-## Objetivo
-- Melhorar o Skate Mod já existente
-- Portar para ASI
-- Colocar as animações do Tony Hawks American Wasteland no mod
-- Integrar juntamente ao Urbanize (onde o skate mod já opera originalmente)
+## Status
+Este repositório contém apenas **documentação e análise reversa**. O código fonte ainda será implementado.
 
-## Estrutura
+## Documentação
+Toda a análise está em `docs/`:
 
-### Mods analisados
-- **Urbanize** (`SA_-_Urbanize_12-25_Final_1/`) - Mod de urbanização para GTA San Andreas por Junior_Djjr
-- **Skate Mod** (`Skate Mod/`) - Skateboard mod existente
+- `VIABILITY_AND_IMPLEMENTATION_DISCUSSION.md` - Plano detalhado de implementação
+- `saawr-compatibility.md` - Análise de compatibilidade com SAAWR
+- `urbanize-skate-integration.md` - Pontos de integração com Urbanize
+- `thaw-analysis.md` - Análise das animações e mecânicas do THAW
+- `skatemod-reverse.md` - Engenharia reversa do Skate Mod original
+- `glnps-analysis.md` - Análise da integração via GLNPS.cs
+- E outros documentos de pesquisa
 
-### Documentação
-Toda a documentação está em `docs/` com análise reversa detalhada:
-
-- `urbanize-overview.md` - Visão geral do Urbanize
-- `skatemod-overview.md` - Visão geral do Skate Mod existente
-- `skatemod-reverse.md` - Engenharia reversa detalhada
-- `skatemod-audio-anim.md` - Áudio e animações
-- `integration-notes.md` - Notas de integração
-- `urbanize-skate-integration.md` - Integração Urbanize + Skate Mod
-- `glnps-analysis.md` - Análise do script GLNPS.cs (ponto de integração)
-- `viability-assessment.md` - Avaliação de viabilidade
-- `plan-next-steps.md` - Próximos passos
-- `technical-summary.md` - Resumo técnico
-
-## Pontos-chave descobertos
-
-### Integração Urbanize + Skate Mod
-- `Urbanize/LS/GLNPS.cs` faz referência ao `sktbd` e lê `cleo/skateboard.ini` (WeaponType/WeaponModel)
-- Urbanize define flag `SKATER` (0x40000000) em `Urbanize.dat`
-- Integração já existe - Urbanize "sabe" do Skate Mod e o suporta
-
-### Skate Mod atual
-- Implementação baseada em veículo (veículo ID 74, modelo sktbd)
-- Ativado com arma/tecla quando não dirigindo
-- Usa animações CHOPPA (`CHOPPA_sprint`)
-- Áudio via audiostream
-- Pickups configuráveis
-- Config em `cleo/skateboard.ini`
-
-## Próximos passos
-1. Engenharia reversa mais profunda do script do Skate Mod
-2. Planejamento da porta para ASI
-3. Obtenção/integração das animações do Tony Hawk's American Wasteland
-4. Garantir compatibilidade com integração Urbanize
-5. Implementação e testes
-
-## Commits
-Todo o trabalho de documentação e análise está sendo commitado neste repositório.
+## Estratégia
+- **Urbanize-aware, não Urbanize-modifying**: Respeita os contratos existentes (`cleo/skateboard.ini`, referências `sktbd`)
+- **SAAWR-safe**: Projetado para coexistir sem ser gerenciado pelo SAAWR
+- **Incremental**: Port para ASI mantendo compatibilidade com o mod original
